@@ -16,7 +16,7 @@ describe 'Trails request' do
 
     expect(trails[:data]).to have_key(:type)
     expect(trails[:data][:type]).to be_a(String)
-    expect(trails[:data][:type]).to eq('trails')
+    expect(trails[:data][:type]).to eq('trail')
 
     expect(trails[:data]).to have_key(:attributes)
     expect(trails[:data][:attributes]).to be_a(Hash)
@@ -34,15 +34,14 @@ describe 'Trails request' do
     expect(attributes[:forecast][:summary]).to be_a(String)
 
     expect(attributes[:forecast]).to have_key(:temperature)
-    expect(attributes[:forecast][:temperature]).to be_a(Integer)
+    expect(attributes[:forecast][:temperature]).to be_a(Float)
 
-    expect(trails[:data]).to have_key(:trails)
-    expect(trails[:data][:trails]).to be_a(Hash)
+    expect(attributes).to have_key(:trails)
+    expect(attributes[:trails]).to be_an(Array)
 
-    expect(trails[:data][:trails]).to be_an(Array)
-    expect(trails[:data][:trails].first).to be_a(Hash)
+    expect(attributes[:trails].first).to be_a(Hash)
 
-    trail = trails[:data][:trails].first
+    trail = attributes[:trails].first
 
     expect(trail).to have_key(:name)
     expect(trail[:name]).to be_a(String)
