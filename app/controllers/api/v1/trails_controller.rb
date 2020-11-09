@@ -14,6 +14,6 @@ class Api::V1::TrailsController < ApplicationController
     trails_info = JSON.parse(response.body, symbolize_names: true)
 
     hike_search = HikeSearch.new(trails_info, forecast, params[:location])
-    HikeSearchSerializer.new(hike_search)
+    render json: HikeSearchSerializer.new(hike_search)
   end
 end
