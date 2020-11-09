@@ -86,6 +86,9 @@ describe 'Weather service' do
     expect(attributes[:hourly_weather].first).to have_key(:time)
     expect(attributes[:hourly_weather].first[:time]).to be_a(String)
 
+    expect(attributes[:hourly_weather].first).to have_key(:predicted_temp)
+    expect(attributes[:hourly_weather].first[:predicted_temp]).to be_a(Float)
+
     expect(attributes[:hourly_weather].first).to have_key(:wind_speed)
     expect(attributes[:hourly_weather].first[:wind_speed]).to be_a(Float)
 
@@ -97,5 +100,9 @@ describe 'Weather service' do
 
     expect(attributes[:hourly_weather].first).to have_key(:icon)
     expect(attributes[:hourly_weather].first[:icon]).to be_a(String)
+  end
+
+  xit "does not return unnecessary information" do
+
   end
 end
