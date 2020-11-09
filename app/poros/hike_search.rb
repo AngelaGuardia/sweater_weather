@@ -20,6 +20,6 @@ class HikeSearch
   end
 
   def set_trails(info)
-    info[:trails].map { |trail| Trail.new(trail) }
+    TrailFacade.trails_with_distance(info, location)
   end
 end
