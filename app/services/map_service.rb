@@ -1,4 +1,4 @@
-class GeolocationService
+class MapService
   def self.lat_lng(params)
     get_parsed_json('/geocoding/v1/address', params)
   end

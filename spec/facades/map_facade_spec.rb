@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe GeolocationFacade do
+describe MapFacade do
   xit "does a thing" do
 
   end

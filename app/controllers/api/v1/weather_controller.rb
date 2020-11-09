@@ -11,7 +11,7 @@ class Api::V1::WeatherController < ApplicationController
     # parsed_json = JSON.parse(response.body, symbolize_names: true)
     # lat_lng = parsed_json[:results].first[:locations].first[:latLng]
 
-    lat_lng = GeolocationFacade.lat_lng(params)
+    lat_lng = MapFacade.lat_lng(params)
 
     conn = Faraday.new('https://api.openweathermap.org')
 
