@@ -1,15 +1,17 @@
 class Api::V1::WeatherController < ApplicationController
   def index
-    conn = Faraday.new('http://www.mapquestapi.com')
+    # conn = Faraday.new('http://www.mapquestapi.com')
+    #
+    # response = conn.get('/geocoding/v1/address') do |req|
+    #   req.params[:key] = ENV['MAPQUEST_API_KEY']
+    #   req.params[:location] = params[:location]
+    #   req.params[:maxResults] = 1
+    # end
+    #
+    # parsed_json = JSON.parse(response.body, symbolize_names: true)
+    # lat_lng = parsed_json[:results].first[:locations].first[:latLng]
 
-    response = conn.get('/geocoding/v1/address') do |req|
-      req.params[:key] = ENV['MAPQUEST_API_KEY']
-      req.params[:location] = params[:location]
-      req.params[:maxResults] = 1
-    end
-
-    parsed_json = JSON.parse(response.body, symbolize_names: true)
-    lat_lng = parsed_json[:results].first[:locations].first[:latLng]
+    lat_lng = GeolocationFacade.lat_lng(params)
 
     conn = Faraday.new('https://api.openweathermap.org')
 
