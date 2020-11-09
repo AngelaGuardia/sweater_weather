@@ -23,7 +23,8 @@ describe Trail do
 
     expect(trail.location).to be_a(String)
     expect(trail.location).to eq("Superior, Colorado")
-    
+
+    trail.set_distance(1.0)
     expect(trail.distance_to_trail).to be_a(Float)
     expect(trail.distance_to_trail).to eq(1.0)
   end
