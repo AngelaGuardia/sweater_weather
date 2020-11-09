@@ -45,15 +45,19 @@ describe 'Trails request' do
 
     expect(trail).to have_key(:name)
     expect(trail[:name]).to be_a(String)
+    expect(trail[:name]).to eq("Boulder Skyline Traverse")
 
     expect(trail).to have_key(:summary)
     expect(trail[:summary]).to be_a(String)
+    expect(trail[:summary]).to eq("The classic long mountain route in Boulder.")
 
     expect(trail).to have_key(:difficulty)
     expect(trail[:difficulty]).to be_a(String)
+    expect(trail[:difficulty]).to eq("black")
 
     expect(trail).to have_key(:location)
     expect(trail[:location]).to be_a(String)
+    expect(trail[:location]).to eq("Superior, Colorado")
 
     expect(trail).to have_key(:distance_to_trail)
     expect(trail[:distance_to_trail]).to be_a(Float)
