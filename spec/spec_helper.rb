@@ -22,6 +22,9 @@ SimpleCov.start 'rails' do
   add_filter '/config/'
   add_filter '/spec/'
 end
+
+require 'helpers'
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -102,4 +105,5 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  config.include Helpers
 end
