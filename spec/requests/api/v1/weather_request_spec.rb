@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Weather service' do
+describe 'Weather request' do
   it "returns weather for a city" do
     get '/api/v1/forecast?location=denver,co'
     expect(response).to be_successful
@@ -56,8 +56,17 @@ describe 'Weather service' do
     expect(attributes[:current_weather]).to have_key(:icon)
     expect(attributes[:current_weather][:icon]).to be_a(String)
 
+    expect(attributes[:current_weather]).not_to have_key(:pressure)
+    expect(attributes[:current_weather]).not_to have_key(:dew_point)
+    expect(attributes[:current_weather]).not_to have_key(:clouds)
+    expect(attributes[:current_weather]).not_to have_key(:wind_speed)
+    expect(attributes[:current_weather]).not_to have_key(:wind_deg)
+    expect(attributes[:current_weather]).not_to have_key(:wind_gust)
+    expect(attributes[:current_weather]).not_to have_key(:weather)
+
     expect(attributes).to have_key(:daily_weather)
     expect(attributes[:daily_weather]).to be_a(Array)
+    expect(attributes[:daily_weather].size).to eq(5)
 
     expect(attributes[:daily_weather].first).to have_key(:date)
     expect(attributes[:daily_weather].first[:date]).to be_a(String)
@@ -80,8 +89,22 @@ describe 'Weather service' do
     expect(attributes[:daily_weather].first).to have_key(:icon)
     expect(attributes[:daily_weather].first[:icon]).to be_a(String)
 
+    expect(attributes[:daily_weather].first).not_to have_key(:temp)
+    expect(attributes[:daily_weather].first).not_to have_key(:feels_like)
+    expect(attributes[:daily_weather].first).not_to have_key(:pressure)
+    expect(attributes[:daily_weather].first).not_to have_key(:humidity)
+    expect(attributes[:daily_weather].first).not_to have_key(:dew_point)
+    expect(attributes[:daily_weather].first).not_to have_key(:wind_speed)
+    expect(attributes[:daily_weather].first).not_to have_key(:wind_deg)
+    expect(attributes[:daily_weather].first).not_to have_key(:clouds)
+    expect(attributes[:daily_weather].first).not_to have_key(:visibility)
+    expect(attributes[:daily_weather].first).not_to have_key(:weather)
+    expect(attributes[:daily_weather].first).not_to have_key(:pop)
+    expect(attributes[:daily_weather].first).not_to have_key(:uvi)
+
     expect(attributes).to have_key(:hourly_weather)
     expect(attributes[:hourly_weather]).to be_a(Array)
+    expect(attributes[:hourly_weather].size).to eq(8)
 
     expect(attributes[:hourly_weather].first).to have_key(:time)
     expect(attributes[:hourly_weather].first[:time]).to be_a(String)
@@ -100,9 +123,15 @@ describe 'Weather service' do
 
     expect(attributes[:hourly_weather].first).to have_key(:icon)
     expect(attributes[:hourly_weather].first[:icon]).to be_a(String)
-  end
 
-  xit "does not return unnecessary information" do
+    expect(attributes[:hourly_weather].first).not_to have_key(:feels_like)
+    expect(attributes[:hourly_weather].first).not_to have_key(:pressure)
+    expect(attributes[:hourly_weather].first).not_to have_key(:humidity)
+    expect(attributes[:hourly_weather].first).not_to have_key(:dew_point)
+    expect(attributes[:hourly_weather].first).not_to have_key(:clouds)
+    expect(attributes[:hourly_weather].first).not_to have_key(:visibility)
+    expect(attributes[:hourly_weather].first).not_to have_key(:weather)
+    expect(attributes[:hourly_weather].first).not_to have_key(:pop)
 
   end
 end
