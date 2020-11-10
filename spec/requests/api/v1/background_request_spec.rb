@@ -38,9 +38,9 @@ describe 'Background Request' do
     expect(image[:data][:attributes][:credit]).to have_key(:author)
     expect(image[:data][:attributes][:credit][:author]).to be_a(String)
     expect(image[:data][:attributes][:credit][:author]).to eq("fauxels")
+  end
 
-    xit "improve image search with city and weather specs" do
+  xit "improve image search with city and weather specs" do
 
-    end
   end
 end
