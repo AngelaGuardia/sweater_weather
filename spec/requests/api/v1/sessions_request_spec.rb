@@ -27,10 +27,25 @@ describe 'Sessions request' do
     expect(parsed[:data][:attributes][:email]).to eq("whatever@example.com")
   end
 
-  it "returns an error if bad credentials are given" do
+  it "returns an error if bad credentials are given - password" do
     payload =  {
               "email": "whatever@example.com",
               "password": "wrong password",
+            }
+
+    post '/api/v1/sessions', params: payload.to_json
+
+    expect(response.status).to eq(400)
+
+    parsed = JSON.parse(response.body, symbolize_names: true)
+
+    expect(parsed[:errors]).to eq("Bad credentials")
+  end
+
+  it "returns an error if bad credentials are given - email" do
+    payload =  {
+              "email": "wrong email",
+              "password": "password",
             }
 
     post '/api/v1/sessions', params: payload.to_json
