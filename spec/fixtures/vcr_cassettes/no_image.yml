@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.1.0
       Authorization:
-      - 563492ad6f91700001000001302ea1babc4a46c4ac9d2acf860925ef
+      - PEXELS_API_KEY
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 11 Nov 2020 03:55:14 GMT
+      - Wed, 11 Nov 2020 05:05:43 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -31,14 +31,14 @@ http_interactions:
       Set-Cookie:
       - __cfduid=d0cbb0c0222ccc9c89e511b3df2a809941605066914; expires=Fri, 11-Dec-20
         03:55:14 GMT; path=/; domain=.pexels.com; HttpOnly; SameSite=Lax
-      - __cfduid=d3fd927e0a7752c5b26de4484df123f4c1605066914; expires=Fri, 11-Dec-20
-        03:55:14 GMT; path=/; domain=.pexels.com; HttpOnly; SameSite=Lax
+      - __cfduid=de008a3c01adee27f33b5d4c8e065ad8b1605071143; expires=Fri, 11-Dec-20
+        05:05:43 GMT; path=/; domain=.pexels.com; HttpOnly; SameSite=Lax
       Cache-Control:
       - max-age=0, private, must-revalidate
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 06570a90da0000e4cccbae6000000001
+      - 06574b1b060000e4e25310a000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Vary:
@@ -48,7 +48,7 @@ http_interactions:
       X-Ratelimit-Limit:
       - '20000'
       X-Ratelimit-Remaining:
-      - '19955'
+      - '19953'
       X-Ratelimit-Reset:
       - '1607504286'
       X-Request-Id:
@@ -57,12 +57,14 @@ http_interactions:
       - '0.064595'
       X-Server:
       - master
+      X-Tyk-Cached-Response:
+      - '1'
       Server:
       - cloudflare
       Cf-Ray:
-      - 5f0513948af4e4cc-LAX
+      - 5f057ad808fce4e2-LAX
     body:
       encoding: ASCII-8BIT
       string: '{"page":1,"per_page":15,"photos":[],"total_results":0}'
-  recorded_at: Wed, 11 Nov 2020 03:55:14 GMT
+  recorded_at: Wed, 11 Nov 2020 05:05:43 GMT
 recorded_with: VCR 6.0.0

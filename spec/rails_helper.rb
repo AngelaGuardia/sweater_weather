@@ -73,4 +73,8 @@ end
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
+  config.filter_sensitive_data('MAPQUEST_API_KEY') { ENV['MAPQUEST_API_KEY'] }
+  config.filter_sensitive_data('OPEN_WEATHER_API_KEY') { ENV['OPEN_WEATHER_API_KEY'] }
+  config.filter_sensitive_data('HIKE_API_KEY') { ENV['HIKE_API_KEY'] }
+  config.filter_sensitive_data('PEXELS_API_KEY') { ENV['PEXELS_API_KEY'] }
 end

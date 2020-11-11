@@ -31,8 +31,8 @@ describe 'Roadtrip request' do
       expect(parsed[:data][:attributes][:start_city]).to eq("Denver,CO")
       expect(parsed[:data][:attributes][:end_city]).to eq("Pueblo,CO")
       expect(parsed[:data][:attributes][:travel_time]).to eq("01:43")
-      expect(parsed[:data][:attributes][:weather_at_eta][:temperature]).to eq(42.94)
-      expect(parsed[:data][:attributes][:weather_at_eta][:conditions]).to eq("scattered clouds")
+      expect(parsed[:data][:attributes][:weather_at_eta][:temperature]).to eq(39.02)
+      expect(parsed[:data][:attributes][:weather_at_eta][:conditions]).to eq("few clouds")
     end
   end
 

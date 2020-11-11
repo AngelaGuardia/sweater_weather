@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.mapquestapi.com/geocoding/v1/address?key=W9eMf9XWsSHAL7FlwVb2RYzGBbcMX5XY&location=Tokyo&maxResults=1
+    uri: http://www.mapquestapi.com/geocoding/v1/address?key=MAPQUEST_API_KEY&location=Tokyo&maxResults=1
     body:
       encoding: US-ASCII
       string: ''
@@ -19,11 +19,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 11 Nov 2020 02:32:11 GMT
+      - Wed, 11 Nov 2020 05:05:45 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1006'
+      - '1009'
       Access-Control-Allow-Methods:
       - OPTIONS,GET,POST
       Access-Control-Allow-Origin:
@@ -35,7 +35,7 @@ http_interactions:
       Geocodetransactioncount:
       - '1'
       Last-Modified:
-      - Wed, 11 Nov 2020 02:32:11 GMT
+      - Wed, 11 Nov 2020 05:05:45 GMT
       Pragma:
       - no-cache
       Reversegeocodetransactioncount:
@@ -43,7 +43,7 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Set-Cookie:
-      - JSESSIONID=7272D133E390853AD07C16865D46F48C; Path=/; HttpOnly
+      - JSESSIONID=FDC63966FDF7230553604275754925FC; Path=/; HttpOnly
       Status:
       - success
       Transactionweight:
@@ -52,11 +52,11 @@ http_interactions:
       encoding: UTF-8
       string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2020 MapQuest,
         Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
-        2020 MapQuest, Inc."},"messages":[]},"options":{"maxResults":1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"Tokyo"},"locations":[{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Tokyo","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"","adminArea3Type":"State","adminArea1":"JP","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"282817722","unknownInput":"","type":"s","latLng":{"lat":35.680071,"lng":139.768522},"displayLatLng":{"lat":35.680071,"lng":139.768522},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=W9eMf9XWsSHAL7FlwVb2RYzGBbcMX5XY&type=map&size=225,160&locations=35.680071,139.768522|marker-sm-50318A-1&scalebar=true&zoom=12&rand=75163247"}]}]}'
-  recorded_at: Wed, 11 Nov 2020 02:32:11 GMT
+        2020 MapQuest, Inc."},"messages":[]},"options":{"maxResults":1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"Tokyo"},"locations":[{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Tokyo","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"","adminArea3Type":"State","adminArea1":"JP","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"282817722","unknownInput":"","type":"s","latLng":{"lat":35.680071,"lng":139.768522},"displayLatLng":{"lat":35.680071,"lng":139.768522},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=MAPQUEST_API_KEY&type=map&size=225,160&locations=35.680071,139.768522|marker-sm-50318A-1&scalebar=true&zoom=12&rand=-2109444949"}]}]}'
+  recorded_at: Wed, 11 Nov 2020 05:05:45 GMT
 - request:
     method: get
-    uri: http://www.mapquestapi.com/directions/v2/route?from=Denver,CO&key=W9eMf9XWsSHAL7FlwVb2RYzGBbcMX5XY&to=Tokyo
+    uri: http://www.mapquestapi.com/directions/v2/route?from=Denver,CO&key=MAPQUEST_API_KEY&to=Tokyo
     body:
       encoding: US-ASCII
       string: ''
@@ -73,7 +73,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 11 Nov 2020 02:32:12 GMT
+      - Wed, 11 Nov 2020 05:05:46 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -81,11 +81,11 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Set-Cookie:
-      - JSESSIONID=13F7BA92ADA63990B729EB0823116774; Path=/directions; HttpOnly
+      - JSESSIONID=B969D36EE16CC483D47139DD6E8B69F3; Path=/directions; HttpOnly
       Expires:
       - Mon, 20 Dec 1998 01:00:00 GMT
       Last-Modified:
-      - Wed, 11 Nov 2020 02:32:12 GMT
+      - Wed, 11 Nov 2020 05:05:46 GMT
       Cache-Control:
       - no-cache, must-revalidate
       Pragma:
@@ -102,5 +102,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: !binary |-
         eyJyb3V0ZSI6eyJyb3V0ZUVycm9yIjp7ImVycm9yQ29kZSI6MiwibWVzc2FnZSI6IiJ9fSwiaW5mbyI6eyJzdGF0dXNjb2RlIjo0MDIsImNvcHlyaWdodCI6eyJpbWFnZUFsdFRleHQiOiLCqSAyMDIwIE1hcFF1ZXN0LCBJbmMuIiwiaW1hZ2VVcmwiOiJodHRwOi8vYXBpLm1xY2RuLmNvbS9yZXMvbXFsb2dvLmdpZiIsInRleHQiOiLCqSAyMDIwIE1hcFF1ZXN0LCBJbmMuIn0sIm1lc3NhZ2VzIjpbIldlIGFyZSB1bmFibGUgdG8gcm91dGUgd2l0aCB0aGUgZ2l2ZW4gbG9jYXRpb25zLiJdfX0=
-  recorded_at: Wed, 11 Nov 2020 02:32:12 GMT
+  recorded_at: Wed, 11 Nov 2020 05:05:46 GMT
 recorded_with: VCR 6.0.0

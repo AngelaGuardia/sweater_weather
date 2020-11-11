@@ -26,8 +26,8 @@ describe Roadtrip do
       expect(roadtrip.end_city).to eq("Pueblo,CO")
       expect(roadtrip.travel_time).to eq("01:43")
       expect(roadtrip.weather_at_eta).to be_a(Hash)
-      expect(roadtrip.weather_at_eta[:temperature]).to eq(42.94)
-      expect(roadtrip.weather_at_eta[:conditions]).to eq("scattered clouds")
+      expect(roadtrip.weather_at_eta[:temperature]).to eq(39.02)
+      expect(roadtrip.weather_at_eta[:conditions]).to eq("few clouds")
     end
   end
 end
