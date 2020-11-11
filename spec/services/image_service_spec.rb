@@ -22,4 +22,15 @@ describe ImageService do
       expect(image_data[:src][:portrait]).to eq("https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800")
     end
   end
+
+  it "returns nil if no image found" do
+      VCR.use_cassette('no_image') do
+
+      params = { location: "kjdhfkjashfkjhaskjdfhaksh" }
+
+      image_data = ImageService.new_image(params)
+
+      expect(image_data).to eq(nil)
+    end
+  end
 end

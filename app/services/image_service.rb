@@ -9,8 +9,14 @@ class ImageService
       req.params[:query] = params[:location]
     end
 
-    parsed_json = JSON.parse(response.body, symbolize_names: true)
-    parsed_json[:photos].first
+    parsed_json = JSON.parse(response.body, symbolize_names: true)[:photos]
+
+    if parsed_json
+      parsed_json.first
+    else
+      nil
+    end
+    ## QUESTION: How to refactor this if else statement
   end
 
   private
