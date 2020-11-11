@@ -1,5 +1,6 @@
 class ImageFacade
   def self.new_image(params)
-     Image.new(ImageService.new_image(params), params)
+    image_data = ImageService.new_image(params)
+    Image.new(image_data, params) if image_data
   end
 end

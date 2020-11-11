@@ -10,4 +10,15 @@ describe ImageFacade do
       expect(image).to be_an(Image)
     end
   end
+
+  it "returns nil if no image found" do
+      VCR.use_cassette('no_image') do
+
+      params = { location: "kjdhfkjashfkjhaskjdfhaksh" }
+
+      image_data = ImageFacade.new_image(params)
+
+      expect(image_data).to eq(nil)
+    end
+  end
 end
