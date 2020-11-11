@@ -24,6 +24,8 @@ SimpleCov.start 'rails' do
 end
 
 require 'helpers'
+require 'webmock/rspec'
+require 'vcr'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
