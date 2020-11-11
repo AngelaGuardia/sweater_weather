@@ -42,6 +42,18 @@ describe 'Background Request' do
     end
   end
 
+  it "returns an an error if no image found" do
+    VCR.use_cassette('no_image') do
+      get '/api/v1/backgrounds?location=kjdhfkjashfkjhaskjdfhaksh'
+      expect(response).to be_successful
+
+      image = JSON.parse(response.body, symbolize_names: true)
+
+      expect(image).to have_key(:errors)
+      expect(image[:errors]).to eq("No image found")
+    end
+  end
+
   xit "improve image search with city and weather specs" do
 
   end
