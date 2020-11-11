@@ -12,7 +12,7 @@ class MapService
 
     location = JSON.parse(response.body, symbolize_names: true)[:results].first[:locations].first
 
-    return nil if location[:adminArea4].empty?
+    return nil if location[:adminArea5].empty?
 
     location[:latLng]
   end
