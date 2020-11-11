@@ -48,6 +48,14 @@ describe MapService do
     expect(time[:hours]).to eq(2)
   end
 
+  it "formats and rounds time" do
+    seconds = 2*3600+34*60+15 #2 hrs 34 min 15 sec
+    formatted_time = MapService.format_time(seconds)
+
+    expect(formatted_time[:formatted_time]).to eq("02:34")
+    expect(formatted_time[:hours]).to eq(3)
+  end
+
   xit "refactor with vcr" do
 
   end

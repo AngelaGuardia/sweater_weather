@@ -15,16 +15,27 @@ class MapService
 
   def self.travel_info(roadtrip_info)
     sec = directions(roadtrip_info)[:route][:time]
+    if sec
+      format_time(sec)
+    else
+      {
+        formatted_time: "impossible route",
+        hours: false
+      }
+    end
+  end
+
+  def self.format_time(sec)
     hours = if sec / 60 % 60 >= 30
               sec / 3600 + 1
             else
               sec / 3600
             end
 
-    time = {
+    {
       formatted_time: "%02d:%02d" % [sec / 3600, sec / 60 % 60, sec % 60],
       hours: hours
-      }
+    }
   end
 
   def self.directions(roadtrip_info)
