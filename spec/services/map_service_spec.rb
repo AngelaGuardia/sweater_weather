@@ -67,4 +67,14 @@ describe MapService do
     expect(formatted_time[:formatted_time]).to eq("02:29")
     expect(formatted_time[:hours]).to eq(2)
   end
+
+  it "returns nil when location not found" do
+    VCR.use_cassette('no_location') do
+      params = { location: 'kjdhfkjashfkjhaskjdfhaksh' }
+
+      response = MapService.lat_lng(params)
+
+      expect(response).to eq(nil)
+    end
+  end
 end

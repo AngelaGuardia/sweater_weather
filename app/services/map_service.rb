@@ -10,7 +10,11 @@ class MapService
       req.params[:maxResults] = 1
     end
 
-    JSON.parse(response.body, symbolize_names: true)[:results].first[:locations].first[:latLng]
+    location = JSON.parse(response.body, symbolize_names: true)[:results].first[:locations].first
+
+    return nil if location[:adminArea4].empty?
+
+    location[:latLng]
   end
 
   def self.travel_info(roadtrip_info)
