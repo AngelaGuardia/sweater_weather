@@ -4,7 +4,7 @@ class Api::V1::BackgroundsController < ApplicationController
     if image
       render json: ImageSerializer.new(image)
     else
-      render json: { errors: "No image found" }.to_json
+      render json: { errors: "No image found" }.to_json, status: :bad_request
       # QUESTION: What is the recommended status here?
     end
   end

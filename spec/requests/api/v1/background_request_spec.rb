@@ -45,7 +45,7 @@ describe 'Background Request' do
   it "returns an an error if no image found" do
     VCR.use_cassette('no_image') do
       get '/api/v1/backgrounds?location=kjdhfkjashfkjhaskjdfhaksh'
-      expect(response).to be_successful
+      expect(response.status).to eq(400)
 
       image = JSON.parse(response.body, symbolize_names: true)
 
