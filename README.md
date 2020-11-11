@@ -1,4 +1,4 @@
-# Sweater Weather API
+# Sweater Weather API ![](https://img.shields.io/badge/version-1.0-orange)
 
 ## Introduction
 
@@ -14,8 +14,8 @@ This API uses Facade/Service and MVC design patterns to keep code organized. It 
     - [Users](#users)
     - [Sessions](#sessions)
     - [Roadtrip](#roadtrip)
-1. Local Setup
-1. Versions
+1. [Local Setup](#localsetup)
+1. [Versions](#versions)
 
 
 
@@ -327,3 +327,29 @@ Sample Request: `http://localhost:3000/api/v1/road_trip`
 }
 ```
 </details>
+
+## Local Setup <a name="localsetup"></a>
+
+Follow the following steps to set up this app locally:
+
+- `git clone git@github.com:AngelaGuardia/sweater_weather.git`
+- `bundle install`
+- `rails db:create`
+- `rails db:migrate`
+- `bundle exec figaro install`
+- Get API keys from the following providers and add them to the `application.yml` file as follows:
+
+    -`MAPQUEST_API_KEY: <your_key>` get your api key [here](https://developer.mapquest.com/) 
+    
+    -`OPEN_WEATHER_API_KEY: <your_key>` get your api key [here](https://openweathermap.org/api) 
+    
+    -`HIKE_API_KEY: <your_key>` get your api key [here](https://www.hikingproject.com/data) 
+    
+    -`PEXELS_API_KEY: <your_key>` get your api key [here](https://www.pexels.com/api/) 
+    
+- `rails s`
+
+## Versions
+
+![](https://img.shields.io/badge/Rails-5.2.4.3-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Ruby-2.5.3-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
