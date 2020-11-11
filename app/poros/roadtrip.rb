@@ -6,14 +6,19 @@ class Roadtrip
               :id
 
   def initialize(info)
+    @id = nil
     @start_city = info[:roadtrip][:origin]
     @end_city = info[:roadtrip][:destination]
     @travel_time = info[:travel][:formatted_time]
-    hourly_forecast = info[:forecast].hourly_48_hours[info[:travel][:hours] - 1]
-    @weather_at_eta = {
-                        temperature: hourly_forecast.predicted_temp,
-                        conditions: hourly_forecast.conditions
-    }
-    @id = nil
+
+    if info[:travel][:hours]
+      hourly_forecast = info[:forecast].hourly_48_hours[info[:travel][:hours] - 1]
+      @weather_at_eta = {
+                          temperature: hourly_forecast.predicted_temp,
+                          conditions: hourly_forecast.conditions
+      }
+    else
+      @weather_at_eta = {}
+    end
   end
 end
