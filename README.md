@@ -14,6 +14,7 @@ This API uses Facade/Service and MVC design patterns to keep code organized. It 
     - [Users](#users)
     - [Sessions](#sessions)
     - [Roadtrip](#roadtrip)
+1. [Sad Paths](#sadpaths)
 1. [Local Setup](#localsetup)
 1. [Versions](#versions)
 
@@ -327,6 +328,127 @@ Sample Request: `http://localhost:3000/api/v1/road_trip`
 }
 ```
 </details>
+
+## Sad Paths <a name="sadpaths"></a>
+All endpoints are built to also handle sad paths. Click below for some sample requests and responses.
+
+<details>
+<summary>Sample Sad Path Requests and Responses</summary>
+    
+    
+**Forecast** `GET /forecast`
+    
+- Sample Request: `http://localhost:3000/api/v1/forecast?location=invalidlocation`
+- Sample Response:
+    
+```json
+{
+    "errors": "Location not found"
+}
+```
+
+**Backgrounds** `GET /backgrounds`
+    
+- Sample Request: `http://localhost:3000/api/v1/backgrounds?location=invalidlocation`
+- Sample Response:
+    
+```json
+{
+    "errors": "No image found"
+}
+```
+
+**Users** `POST /users`
+    
+- Sample Request: `http://localhost:3000/api/v1/users`
+- Sample Request Body:
+
+```json
+{
+    "email": "",
+    "password": "",
+    "password_confirmation": ""
+}
+```
+
+- Sample Response:
+    
+```json
+{
+    "errors": [
+        "Password can't be blank",
+        "Email can't be blank",
+        "Password confirmation doesn't match Password"
+    ]
+}
+```
+**Sessions** `POST /sessions`
+    
+- Sample Request: `http://localhost:3000/api/v1/sessions`
+- Sample Request Body:
+
+```json
+{
+    "email": "example@email.com",
+    "password": "wrong password"
+}
+```
+
+- Sample Response:
+    
+```json
+{
+    "errors": "Bad credentials"
+}
+```
+**Roadtrip** `POST /road_trip`
+    
+- Sample Request: `http://localhost:3000/api/v1/road_trip`
+- Sample Request Body:
+
+```json
+{
+    "origin": "San Francisco",
+    "destination": "Tokyo",
+    "api_key": "WygBqWp7QBRxoiH22FkBRGaa"
+}
+```
+
+- Sample Response:
+    
+```json
+{
+    "data": {
+        "id": null,
+        "type": "roadtrip",
+        "attributes": {
+            "start_city": "San Francisco",
+            "end_city": "Tokyo",
+            "travel_time": "impossible route",
+            "weather_at_eta": {}
+        }
+    }
+}
+```
+
+- Sample Request Body:
+
+```json
+{
+    "origin": "San Francisco",
+    "destination": "Los Angeles",
+    "api_key": "wrong key"
+}
+```
+
+- Sample Response:
+    
+```json
+{
+    "errors": "Invalid Key"
+}
+```
+</details>  
 
 ## Local Setup <a name="localsetup"></a>
 
