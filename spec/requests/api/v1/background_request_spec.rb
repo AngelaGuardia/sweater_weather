@@ -53,8 +53,4 @@ describe 'Background Request' do
       expect(image[:errors]).to eq("No image found")
     end
   end
-
-  xit "improve image search with city and weather specs" do
-
-  end
 end
