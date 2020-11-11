@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Sweater Weather is a backend API that could be used for a roadtrip planning app. It was based of off a set of [frontend requirements](https://backend.turing.io/module3/projects/sweater_weather/requirements) and wireframes. It exposes 5 endpoints that aggregate data from multiple external APIs.
+Sweater Weather is a backend API that could be used for a roadtrip planning app. It was based of off a set of [frontend requirements](https://backend.turing.io/module3/projects/sweater_weather/requirements) and wireframes. It exposes 5 endpoints that aggregate data from multiple external APIs ([Mapquest](https://developer.mapquest.com/), [Open Weather](https://openweathermap.org/api), and [Pexels](https://www.pexels.com/api/)).
 
 This API uses Facade/Service and MVC design patterns to keep code organized. It makes use of serializers to serve information. The API was built using Test Driven Design which resulted in 100% test coverage.
 
@@ -342,8 +342,6 @@ Follow the following steps to set up this app locally:
     -`MAPQUEST_API_KEY: <your_key>` get your api key [here](https://developer.mapquest.com/) 
     
     -`OPEN_WEATHER_API_KEY: <your_key>` get your api key [here](https://openweathermap.org/api) 
-    
-    -`HIKE_API_KEY: <your_key>` get your api key [here](https://www.hikingproject.com/data) 
     
     -`PEXELS_API_KEY: <your_key>` get your api key [here](https://www.pexels.com/api/) 
     
