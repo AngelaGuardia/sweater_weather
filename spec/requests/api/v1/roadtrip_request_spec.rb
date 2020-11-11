@@ -1,11 +1,23 @@
 require 'rails_helper'
 
 describe 'Roadtrip request' do
+  before :each do
+    payload =  {
+      "email": "whatever@example.com",
+      "password": "password",
+      "password_confirmation": "password"
+    }
+
+    post '/api/v1/users', params: payload.to_json
+
+    @user = User.last
+  end
+
   it "it returns roadtrip info" do
     payload = {
                 "origin": "Denver,CO",
                 "destination": "Pueblo,CO",
-                "api_key": "jgn983hy48thw9begh98h4539h4"
+                "api_key": @user.api_key
               }
 
     post '/api/v1/road_trip', params: payload.to_json
@@ -20,5 +32,53 @@ describe 'Roadtrip request' do
     expect(parsed[:data][:attributes][:travel_time]).to eq("01:43")
     expect(parsed[:data][:attributes][:weather_at_eta][:temperature]).to eq(47.52)
     expect(parsed[:data][:attributes][:weather_at_eta][:conditions]).to eq("few clouds")
+  end
+
+  it "returns Unauthorized status when wrong key is provided" do
+    payload = {
+                "origin": "Denver,CO",
+                "destination": "Pueblo,CO",
+                "api_key": "wrong key"
+              }
+
+    post '/api/v1/road_trip', params: payload.to_json
+    expect(response.status).to eq(401)
+
+    parsed = JSON.parse(response.body, symbolize_names: true)
+
+    expect(parsed[:errors]).to eq("Invalid Key")
+  end
+
+  it "returns Unauthorized status when no key is provided" do
+    payload = {
+                "origin": "Denver,CO",
+                "destination": "Pueblo,CO",
+                "api_key": ""
+              }
+
+    post '/api/v1/road_trip', params: payload.to_json
+    expect(response.status).to eq(401)
+
+    parsed = JSON.parse(response.body, symbolize_names: true)
+
+    expect(parsed[:errors]).to eq("Invalid Key")
+  end
+
+  it "returns approtiate response when route is impossible" do
+    payload = {
+                "origin": "Denver,CO",
+                "destination": "Tokyo",
+                "api_key": @user.api_key
+              }
+
+    post '/api/v1/road_trip', params: payload.to_json
+    expect(response).to be_successful
+
+    parsed = JSON.parse(response.body, symbolize_names: true)
+
+    expect(parsed[:data][:attributes][:start_city]).to eq("Denver,CO")
+    expect(parsed[:data][:attributes][:end_city]).to eq("Tokyo")
+    expect(parsed[:data][:attributes][:travel_time]).to eq("impossible route")
+    expect(parsed[:data][:attributes][:weather_at_eta][:temperature]).to eq(nil)
   end
 end
