@@ -1,0 +1,20 @@
+language: ruby
+rbenv:
+- 2.5.3
+addons:
+  postgresql: '9.6'
+notifications:
+  email:
+    on_success: never
+    on_failure: never
+cache:
+- bundler
+deploy:
+  provider: heroku
+  api_key:
+    secure: nXKbOGOm725OIR+if7Yf7eqwM3dUtAVvPz6HIR1rAbqqN0tEgBVWVrc0ijHT4RwVQykmr4GZQyMZxI9cRs7doGp77/Wei00JLQvmG187SZKO11U1e/inOTeaxwLNLZzKLeQSiHIH/Vsjaq2ecIFDE2o2aLxXzw3QM7Oh+qgUdTt7Sv+1dT1QbgW0YZCvSJVScZkzj193oHcQG9s8VZhLmjs5gAchB9bWPnFVeq0TQDDpEwPC7MMOrjycChmwLXNsOgKAwpBy+t7+cBAM1u5RuqgjTvkxWt06cZw5LuDXuAAXWZuNt4cAvgfFVbZAbGARBK7mHSIXjVNLxXMDMNjig12IHbrLi1AlDRYeLQyfYDQk+lMDpD7IgqSy7X5SyUs+h7ZZt1P1TGkfVL0iNDVPa3ERRbxh4H5ICkteuYYMihJhrVqPwfy1U/bVPKcjaouYF1FKaZ0ithUSRgMB4O8dglVk0IufapmfcwqJyC9VJ3BJTe/4h1OblRh8CzpEHcrIkAjRPzXzEkbL+4rw4a7kGI/aR3852B7K2ViiGqmT9ryFjbGKMma2T1GIzlUMjpWiayY+qgKNMdFubizOJK8l/MnfDrg22+zyCupoYsSQE3Z/gaCDNvBtlELLYj9iHI0OeY24ZMdbGXB+Htmtgah/aUS0s+hn6YgUfsIrRpmSdSM=
+  app: sweater_weather
+  on:
+    repo: AngelaGuardia/sweater_weather
+    branch: main
+  skip_cleanup: 'true'
