@@ -31,7 +31,7 @@ Parameters:
 | `location`  | required  | String  |
 |---|---|---|
 
-Sample Request: `http://localhost:3000/api/v1/forecast?location=Calgary`
+Sample Request: `https://sweater-weather-ag.herokuapp.com/api/v1/forecast?location=Calgary`
 <details>
 <summary>Sample Response</summary>
 
@@ -180,10 +180,10 @@ Parameters
 | `location`  | required  | String  |
 |---|---|---|
 
-Sample Request: `http://localhost:3000/api/v1/backgrounds?location=san%20francisco`
+Sample Request: `https://sweater-weather-ag.herokuapp.com/api/v1/backgrounds?location=san%20francisco`
 <details>
 <summary>Sample Response</summary>
- 
+
 ```json
   {
     "data": {
@@ -214,10 +214,10 @@ Request Body
 | `password`  | required  | String  |
 | `password_confirmation`  | required  | String  |
 
-Sample Request: `http://localhost:3000/api/v1/users`
+Sample Request: `https://sweater-weather-ag.herokuapp.com/api/v1/users`
 <details>
 <summary>Sample Request Body</summary>
-  
+
 ```json
 {
   "email": "example@email.com",
@@ -229,7 +229,7 @@ Sample Request: `http://localhost:3000/api/v1/users`
 
 <details>
 <summary>Sample Response</summary>
- 
+
 ```json
 {
     "data": {
@@ -255,10 +255,10 @@ Request Body
 | `password`  | required  | String  |
 
 
-Sample Request: `http://localhost:3000/api/v1/sessions`
+Sample Request: `https://sweater-weather-ag.herokuapp.com/api/v1/sessions`
 <details>
 <summary>Sample Request Body</summary>
-  
+
 ```json
 {
   "email": "example@email.com",
@@ -269,7 +269,7 @@ Sample Request: `http://localhost:3000/api/v1/sessions`
 
 <details>
 <summary>Sample Response</summary>
- 
+
 ```json
 {
     "data": {
@@ -296,10 +296,10 @@ Request Body
 | `api_key`  | required  | String  |
 
 
-Sample Request: `http://localhost:3000/api/v1/road_trip`
+Sample Request: `https://sweater-weather-ag.herokuapp.com/api/v1/road_trip`
 <details>
 <summary>Sample Request Body</summary>
-  
+
 ```json
 {
     "origin": "San Francisco",
@@ -311,7 +311,7 @@ Sample Request: `http://localhost:3000/api/v1/road_trip`
 
 <details>
 <summary>Sample Response</summary>
- 
+
 ```json
 {
     "data": {
@@ -336,13 +336,13 @@ All endpoints are built to also handle sad paths. Click below for some sample re
 
 <details>
 <summary>Sample Sad Path Requests and Responses</summary>
-    
-    
+
+
 **Forecast** `GET /forecast`
-    
-- Sample Request: `http://localhost:3000/api/v1/forecast?location=invalidlocation`
+
+- Sample Request: `https://sweater-weather-ag.herokuapp.com/api/v1/forecast?location=invalidlocation`
 - Sample Response:
-    
+
 ```json
 {
     "errors": "Location not found"
@@ -350,10 +350,10 @@ All endpoints are built to also handle sad paths. Click below for some sample re
 ```
 
 **Backgrounds** `GET /backgrounds`
-    
-- Sample Request: `http://localhost:3000/api/v1/backgrounds?location=invalidlocation`
+
+- Sample Request: `https://sweater-weather-ag.herokuapp.com/api/v1/backgrounds?location=invalidlocation`
 - Sample Response:
-    
+
 ```json
 {
     "errors": "No image found"
@@ -361,8 +361,8 @@ All endpoints are built to also handle sad paths. Click below for some sample re
 ```
 
 **Users** `POST /users`
-    
-- Sample Request: `http://localhost:3000/api/v1/users`
+
+- Sample Request: `https://sweater-weather-ag.herokuapp.com/api/v1/users`
 - Sample Request Body:
 
 ```json
@@ -374,7 +374,7 @@ All endpoints are built to also handle sad paths. Click below for some sample re
 ```
 
 - Sample Response:
-    
+
 ```json
 {
     "errors": [
@@ -385,8 +385,8 @@ All endpoints are built to also handle sad paths. Click below for some sample re
 }
 ```
 **Sessions** `POST /sessions`
-    
-- Sample Request: `http://localhost:3000/api/v1/sessions`
+
+- Sample Request: `https://sweater-weather-ag.herokuapp.com/api/v1/sessions`
 - Sample Request Body:
 
 ```json
@@ -397,15 +397,15 @@ All endpoints are built to also handle sad paths. Click below for some sample re
 ```
 
 - Sample Response:
-    
+
 ```json
 {
     "errors": "Bad credentials"
 }
 ```
 **Roadtrip** `POST /road_trip`
-    
-- Sample Request: `http://localhost:3000/api/v1/road_trip`
+
+- Sample Request: `https://sweater-weather-ag.herokuapp.com/api/v1/road_trip`
 - Sample Request Body:
 
 ```json
@@ -417,7 +417,7 @@ All endpoints are built to also handle sad paths. Click below for some sample re
 ```
 
 - Sample Response:
-    
+
 ```json
 {
     "data": {
@@ -444,7 +444,7 @@ All endpoints are built to also handle sad paths. Click below for some sample re
 ```
 
 - Sample Response:
-    
+
 ```json
 {
     "errors": "Invalid Key"
@@ -463,12 +463,12 @@ Follow the following steps to set up this app locally:
 - `bundle exec figaro install`
 - Get API keys from the following providers and add them to the `application.yml` file as follows:
 
-    -`MAPQUEST_API_KEY: <your_key>` get your api key [here](https://developer.mapquest.com/) 
-    
-    -`OPEN_WEATHER_API_KEY: <your_key>` get your api key [here](https://openweathermap.org/api) 
-    
-    -`PEXELS_API_KEY: <your_key>` get your api key [here](https://www.pexels.com/api/) 
-    
+    -`MAPQUEST_API_KEY: <your_key>` get your api key [here](https://developer.mapquest.com/)
+
+    -`OPEN_WEATHER_API_KEY: <your_key>` get your api key [here](https://openweathermap.org/api)
+
+    -`PEXELS_API_KEY: <your_key>` get your api key [here](https://www.pexels.com/api/)
+
 - `rails s`
 
 ## Versions
