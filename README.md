@@ -6,6 +6,8 @@ Sweater Weather is a backend API that could be used for a roadtrip planning app.
 
 This API uses Facade/Service and MVC design patterns to keep code organized. It makes use of serializers to serve information. The API was built using Test Driven Design which resulted in 100% test coverage.
 
+Version 1.0 URL: `https://sweater-weather-ag.herokuapp.com/api/v1/`
+
 ## Table of Contents
 
 1. [Endpoints](#endpoints)
@@ -21,7 +23,7 @@ This API uses Facade/Service and MVC design patterns to keep code organized. It 
 
 
 ## Endpoints
-### Forecast - ```GET /forecast``` - [Try it out](insert link) <a name="forecast"></a>
+### Forecast - ```GET /forecast``` - [Try it out](https://sweater-weather-ag.herokuapp.com/api/v1/forecast?location=losangeles) <a name="forecast"></a>
 
 Returns a JSON object with weather information for a location. It includes: current weather, daily forecast (up to 5 days) and hourly forecast (up to 8 hours).
 
@@ -170,7 +172,7 @@ Sample Request: `http://localhost:3000/api/v1/forecast?location=Calgary`
 ```
 </details>
 
-### Backgrounds - ```GET /backgrounds``` - [Try it out](insert link) <a name="backgrounds"></a>
+### Backgrounds - ```GET /backgrounds``` - [Try it out](https://sweater-weather-ag.herokuapp.com/api/v1/backgrounds?location=sanfrancisco) <a name="backgrounds"></a>
 
 Returns a JSON object with a portrait image of the location provided.
 
@@ -201,7 +203,7 @@ Sample Request: `http://localhost:3000/api/v1/backgrounds?location=san%20francis
 </details>
 
 
-### Users - ```POST /users``` - [Try it out](insert link) <a name="users"></a>
+### Users - ```POST /users``` - Use [Postman](https://web.postman.co/) to try it out <a name="users"></a>
 
 Used for user registration. Returns a JSON object user information and a unique API key required for authentication.
 
@@ -242,7 +244,7 @@ Sample Request: `http://localhost:3000/api/v1/users`
 ```
 </details>
 
-### Sessions - ```POST /sessions``` - [Try it out](insert link) <a name="sessions"></a>
+### Sessions - ```POST /sessions``` - Use [Postman](https://web.postman.co/) to try it out <a name="sessions"></a>
 
 Used for user authentication. Returns a JSON object user information and a unique API key required for authentication.
 
@@ -282,7 +284,7 @@ Sample Request: `http://localhost:3000/api/v1/sessions`
 ```
 </details>
 
-### Roadtrip - ```POST /road_trip``` - [Try it out](insert link) <a name="roadtrip"></a>
+### Roadtrip - ```POST /road_trip``` - Use [Postman](https://web.postman.co/) to try it out <a name="roadtrip"></a>
 
 Returns a JSON object roadtrip information such as travel time and predicted weather at destination.
 
