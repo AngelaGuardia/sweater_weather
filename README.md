@@ -172,7 +172,7 @@ Sample Request: `https://sweater-weather-ag.herokuapp.com/api/v1/forecast?locati
 ```
 </details>
 
-### Backgrounds - ```GET /backgrounds``` - [Try it out](https://sweater-weather-ag.herokuapp.com/api/v1/backgrounds?location=san francisco) <a name="backgrounds"></a>
+### Backgrounds - ```GET /backgrounds``` - [Try it out](https://sweater-weather-ag.herokuapp.com/api/v1/backgrounds?location=san%20francisco) <a name="backgrounds"></a>
 
 Returns a JSON object with a portrait image of the location provided.
 
