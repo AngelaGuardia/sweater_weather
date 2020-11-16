@@ -10,13 +10,7 @@ class ImageService
     end
 
     parsed_json = JSON.parse(response.body, symbolize_names: true)[:photos]
-
-    if parsed_json
-      parsed_json.first
-    else
-      nil
-    end
-    ## QUESTION: How to refactor this if else statement
+    parsed_json.first if parsed_json
   end
 
   private
