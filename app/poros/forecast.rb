@@ -3,10 +3,10 @@ class Forecast
 
   def initialize(data)
     @current_weather = CurrentWeather.new(data[:current])
-    @daily_weather = set_daily(data[:daily]).first(5)
+    @daily_weather = set_daily(data[:daily].first(5))
     @hourly_48_hours = set_hourly(data[:hourly])
     @hourly_weather = @hourly_48_hours.first(8)
-    @id = nil
+    @id = nil # TODO: refactor so this is part of serializer
   end
 
   def set_daily(days)
