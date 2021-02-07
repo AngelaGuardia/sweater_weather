@@ -147,4 +147,16 @@ describe 'Weather request' do
       expect(forecast[:errors]).to eq("Location not found")
     end
   end
+
+  it "return error message when no location given" do
+    VCR.use_cassette('empty_location') do
+      get '/api/v1/forecast?location='
+      expect(response.status).to eq(400)
+
+      forecast = JSON.parse(response.body, symbolize_names: true)
+
+      expect(forecast).to have_key(:errors)
+      expect(forecast[:errors]).to eq("Location not found")
+    end
+  end
 end
