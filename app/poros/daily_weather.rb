@@ -15,4 +15,6 @@ class DailyWeather
     @conditions = data[:weather].first[:description]
     @icon = data[:weather].first[:icon]
   end
+
+  # TODO: make time formatting more human readable?
 end

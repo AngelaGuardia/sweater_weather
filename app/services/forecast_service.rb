@@ -9,9 +9,8 @@ class ForecastService
       req.params[:lat] = lat_lng[:lat]
       req.params[:lon] = lat_lng[:lng]
       req.params[:exclude] = 'minutely,alerts'
-      req.params[:units] = 'imperial'
+      req.params[:units] = 'imperial' #make units an optional parameter to change between imperial and metric
     end
-
     JSON.parse(response.body, symbolize_names: true)
   end
 

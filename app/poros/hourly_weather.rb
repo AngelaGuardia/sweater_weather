@@ -14,4 +14,6 @@ class HourlyWeather
     @conditions = data[:weather].first[:description]
     @icon = data[:weather].first[:icon]
   end
+
+  # TODO: When ran locally, the time Time.at reflects the local time of the computer running it. However the hosted app must be displaying the local time of the heroku server
 end

@@ -8,3 +8,4 @@ class Api::V1::WeatherController < ApplicationController
     end
   end
 end
+# TODO: add private params?
