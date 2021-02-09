@@ -3,7 +3,7 @@ require 'rails_helper'
 describe ForecastService do
   it "returns forecast for given latitude and longitude" do
     VCR.use_cassette('denver_forecast') do
-      params = { lat: 39.738453, lng: -104.984853 }
+      params = {:lat_lng=>{:lat=>39.738453, :lng=>-104.984853}, :units=>nil}
 
       forecast = ForecastService.forecast(params)
 

@@ -16,7 +16,7 @@ describe Roadtrip do
 
       lat_lng = { lat: 38.265425, lng: -104.610415 }
 
-      forecast = ForecastFacade.forecast(lat_lng)
+      forecast = ForecastFacade.forecast({lat_lng: lat_lng})
 
       roadtrip = Roadtrip.new({ roadtrip: roadtrip_info, travel: travel_info, forecast: forecast})
 
