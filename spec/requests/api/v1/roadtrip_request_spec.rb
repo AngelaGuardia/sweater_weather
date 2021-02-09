@@ -36,6 +36,30 @@ describe 'Roadtrip request' do
     end
   end
 
+  it "it returns roadtrip info with optional units params" do
+    VCR.use_cassette('denver_pueblo_roadtrip_metric') do
+      payload = {
+                  "origin": "Denver,CO",
+                  "destination": "Pueblo,CO",
+                  "api_key": @user.api_key,
+                  "units": "metric"
+                }
+
+      post '/api/v1/road_trip', params: payload.to_json
+      expect(response).to be_successful
+
+      parsed = JSON.parse(response.body, symbolize_names: true)
+
+      roadtrip_serializer_structure_check(parsed)
+
+      expect(parsed[:data][:attributes][:start_city]).to eq("Denver,CO")
+      expect(parsed[:data][:attributes][:end_city]).to eq("Pueblo,CO")
+      expect(parsed[:data][:attributes][:travel_time]).to eq("01:44")
+      expect(parsed[:data][:attributes][:weather_at_eta][:temperature]).to eq(1.63)
+      expect(parsed[:data][:attributes][:weather_at_eta][:conditions]).to eq("overcast clouds")
+    end
+  end
+
   it "returns Unauthorized status when wrong key is provided" do
     payload = {
                 "origin": "Denver,CO",
