@@ -136,6 +136,24 @@ describe 'Weather request' do
     end
   end
 
+  it "returns weather for a city with metric units" do
+    VCR.use_cassette('bakersfield_metric_forecast') do
+      get '/api/v1/forecast?location=bakersfield&units=metric'
+      expect(response).to be_successful
+
+      forecast = JSON.parse(response.body, symbolize_names: true)
+
+      attributes = forecast[:data][:attributes]
+
+      expect(attributes).to have_key(:current_weather)
+      expect(attributes[:current_weather]).to be_a(Hash)
+
+      expect(attributes[:current_weather]).to have_key(:temperature)
+      expect(attributes[:current_weather][:temperature]).to be_a(Float)
+      expect(attributes[:current_weather][:temperature] < 40).to be_truthy
+    end
+  end
+
   it "returns error message when location not found" do
     VCR.use_cassette('no_location') do
       get '/api/v1/forecast?location=kjdhfkjashfkjhaskjdfhaksh'

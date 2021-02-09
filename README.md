@@ -27,9 +27,19 @@ Version 1.0 URL: `https://sweater-weather-ag.herokuapp.com/api/v1/`
 
 Returns a JSON object with weather information for a location. It includes: current weather, daily forecast (up to 5 days) and hourly forecast (up to 8 hours).
 
+It takes an optional parameter of `units` to specify if the user want `metric` vs `imperial`. Units default to imperial.
+
+Metric units result in temperatures in Celsius and wind speeds in meters/second.
+
+Imperial units result in temperatures in Fahrenheit and wind speeds in miles/hour
+
 Parameters:
-| `location`  | required  | String  |
+
+| Name  |  Requirement | Type  |
 |---|---|---|
+| `location`  | required  | String  |
+| `units`  | optional  | String  |
+
 
 Sample Request: `https://sweater-weather-ag.herokuapp.com/api/v1/forecast?location=Calgary`
 <details>
@@ -294,6 +304,7 @@ Request Body
 | `origin`  | required  | String  |
 | `destination`  | required  | String  |
 | `api_key`  | required  | String  |
+| `units`  | optional | String  |
 
 
 Sample Request: `https://sweater-weather-ag.herokuapp.com/api/v1/road_trip`

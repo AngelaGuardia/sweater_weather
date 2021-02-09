@@ -1,15 +1,19 @@
 class ForecastService
-  def self.forecast(lat_lng)
-    get_parsed_json('/data/2.5/onecall', lat_lng)
+  def self.forecast(params)
+    get_parsed_json('/data/2.5/onecall', params)
   end
 
-  def self.get_parsed_json(url, lat_lng)
+  def self.get_parsed_json(url, params)
     response = conn.get(url) do |req|
       req.params[:appid] = ENV['OPEN_WEATHER_API_KEY']
-      req.params[:lat] = lat_lng[:lat]
-      req.params[:lon] = lat_lng[:lng]
+      req.params[:lat] = params[:lat_lng][:lat]
+      req.params[:lon] = params[:lat_lng][:lng]
       req.params[:exclude] = 'minutely,alerts'
-      req.params[:units] = 'imperial' #make units an optional parameter to change between imperial and metric
+      if params[:units]
+        req.params[:units] = params[:units]
+      else
+        req.params[:units] = 'imperial'
+      end
     end
     JSON.parse(response.body, symbolize_names: true)
   end
