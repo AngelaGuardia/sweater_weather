@@ -30,12 +30,14 @@ class MapService
   end
 
   def self.format_time(sec)
+    # format time &
+    # round to the nearest hour (used to calculate forecast at time of arrival)
+    # TODO: This should maybe be split into two methods
     hours = if sec / 60 % 60 >= 30
               sec / 3600 + 1
             else
               sec / 3600
             end
-
     {
       formatted_time: "%02d:%02d" % [sec / 3600, sec / 60 % 60, sec % 60],
       hours: hours
