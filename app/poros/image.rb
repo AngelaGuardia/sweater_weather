@@ -5,7 +5,7 @@ class Image
 
   def initialize(data, params)
     @location = params[:location]
-    @url = data[:src][:portrait]
-    @credit = { source: 'pexels.com', author: data[:photographer] }
+    @url = data[:urls][:full]
+    @credit = { source: 'unsplash.com', author: data[:user][:name] }
   end
 end
