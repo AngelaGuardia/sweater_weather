@@ -10,16 +10,15 @@ describe ImageService do
 
       expect(image_data).to be_a(Hash)
 
-      expect(image_data).to have_key(:photographer)
-      expect(image_data[:photographer]).to be_a(String)
-      expect(image_data[:photographer]).to eq('fauxels')
+      expect(image_data).to have_key(:urls)
+      expect(image_data[:urls]).to be_a(Hash)
+      expect(image_data[:urls]).to have_key(:full)
+      expect(image_data[:urls][:full]).to be_a(String)
 
-      expect(image_data).to have_key(:src)
-      expect(image_data[:src]).to be_a(Hash)
-
-      expect(image_data[:src]).to have_key(:portrait)
-      expect(image_data[:src][:portrait]).to be_a(String)
-      expect(image_data[:src][:portrait]).to eq("https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800")
+      expect(image_data).to have_key(:user)
+      expect(image_data[:user]).to be_a(Hash)
+      expect(image_data[:user]).to have_key(:name)
+      expect(image_data[:user][:name]).to be_a(String)
     end
   end
 
