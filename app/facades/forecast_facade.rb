@@ -1,9 +1,6 @@
 class ForecastFacade
   def self.forecast(params)
-    forecast_new(ForecastService.forecast(params))
-  end
-
-  def self.forecast_new(forecast)
+    forecast = ForecastService.forecast(params)
     Forecast.new(forecast)
   end
 end
