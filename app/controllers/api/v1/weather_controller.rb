@@ -1,6 +1,6 @@
 class Api::V1::WeatherController < ApplicationController
   def index
-    lat_lng = MapFacade.lat_lng(params)
+    lat_lng = MapService.lat_lng(params)
     if lat_lng
       render json: ForecastSerializer.new(ForecastFacade.forecast({lat_lng: lat_lng, units: params[:units]}))
     else
@@ -8,4 +8,3 @@ class Api::V1::WeatherController < ApplicationController
     end
   end
 end
-# TODO: add private params?
