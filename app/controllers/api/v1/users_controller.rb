@@ -9,3 +9,5 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 end
+
+# TODO: Improve security of JSON payload by restricting size, and limiting sources to either jsut the FE or jsut https sites

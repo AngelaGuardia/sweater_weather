@@ -46,7 +46,7 @@ describe MapService do
 
       expect(time).to have_key(:formatted_time)
       expect(time[:formatted_time]).to be_a(String)
-      expect(time[:formatted_time]).to eq("01:43")
+      expect(time[:formatted_time]).to eq("01:44")
 
       expect(time).to have_key(:hours)
       expect(time[:hours]).to be_a(Integer)
