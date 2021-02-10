@@ -4,7 +4,7 @@ class ImageService
   end
 
   def self.get_parsed_json(url, params)
-    response = conn.get('/v1/search') do |req|
+    response = conn.get(url) do |req|
       req.headers[:authorization] = ENV['PEXELS_API_KEY']
       req.params[:query] = params[:location]
     end
@@ -17,5 +17,6 @@ class ImageService
 
   def self.conn
     Faraday.new('https://api.pexels.com')
+    # TODO: Add api key here instead
   end
 end
