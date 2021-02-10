@@ -27,18 +27,17 @@ describe 'Background Request' do
 
       expect(image[:data][:attributes]).to have_key(:url)
       expect(image[:data][:attributes][:url]).to be_a(String)
-      expect(image[:data][:attributes][:url]).to eq("https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800")
+      expect(image[:data][:attributes][:url]).to eq("https://images.unsplash.com/photo-1578063008687-42d9230cf192?crop=entropy&cs=srgb&fm=jpg&ixid=MXwxODEzNjB8MHwxfHNlYXJjaHwxfHxkZW52ZXIsY298ZW58MHwwfHw&ixlib=rb-1.2.1&q=85")
 
       expect(image[:data][:attributes]).to have_key(:credit)
       expect(image[:data][:attributes][:credit]).to be_a(Hash)
 
       expect(image[:data][:attributes][:credit]).to have_key(:source)
       expect(image[:data][:attributes][:credit][:source]).to be_a(String)
-      expect(image[:data][:attributes][:credit][:source]).to eq('pexels.com')
+      expect(image[:data][:attributes][:credit][:source]).to eq('unsplash.com')
 
       expect(image[:data][:attributes][:credit]).to have_key(:author)
       expect(image[:data][:attributes][:credit][:author]).to be_a(String)
-      expect(image[:data][:attributes][:credit][:author]).to eq("fauxels")
     end
   end
 
