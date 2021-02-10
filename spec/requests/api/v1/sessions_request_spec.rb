@@ -35,7 +35,7 @@ describe 'Sessions request' do
 
     post '/api/v1/sessions', params: payload.to_json
 
-    expect(response.status).to eq(400)
+    expect(response.status).to eq(401)
 
     parsed = JSON.parse(response.body, symbolize_names: true)
 
@@ -50,7 +50,7 @@ describe 'Sessions request' do
 
     post '/api/v1/sessions', params: payload.to_json
 
-    expect(response.status).to eq(400)
+    expect(response.status).to eq(401)
 
     parsed = JSON.parse(response.body, symbolize_names: true)
 

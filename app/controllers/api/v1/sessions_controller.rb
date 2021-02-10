@@ -6,8 +6,7 @@ class Api::V1::SessionsController < ApplicationController
       session[:user_id] = user.id
       render json: UserSerializer.new(user)
     else
-      render json: { errors: 'Bad credentials' }, status: :bad_request
-      # TODO: Is bad request the right status here?
+      render json: { errors: 'Bad credentials' }, status: :unauthorized
     end
   end
 end
